@@ -4,6 +4,6 @@ vim.fn.setreg("g",
 
 -- convert json field to proper Odin field
 vim.fn.setreg("o", vim.api.nvim_replace_termcodes(
-	[=[_yiwo<Esc>p:s/\(\u\)/_\l\1/ge<CR>_diwk_viwpA<BS> `json:"<Esc>pa"`<Esc>jdd]=]
+	[=[_yiwo<Esc>p:s/\(\u\)/_\l\1/ge<CR>_diwk_viwpA<BS> `json:"<Esc>pa"`,<Esc>jdd]=]
 	, true, true, true)
 )
