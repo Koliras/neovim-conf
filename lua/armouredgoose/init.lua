@@ -1,5 +1,6 @@
 require("armouredgoose.options")
 require("armouredgoose.keymaps")
+require("armouredgoose.macros")
 require("armouredgoose.funcs")
 require("armouredgoose.lazy")
 require("armouredgoose.zellij")
