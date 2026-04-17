@@ -9,6 +9,7 @@ return {
 			keywords = {
 				TODO = { alt = { "todo" } },
 			},
+			vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<CR>")
 		},
 	},
 }
