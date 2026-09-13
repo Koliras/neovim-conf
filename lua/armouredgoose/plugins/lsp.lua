@@ -23,8 +23,13 @@ return {
 				root_markers = { 'ols.json', '.git' },
 				settings = {
 					odin_command = { "/home/koliras/Odin/odin" },
-					enable_hover = false,
 					enable_format = false,
+					enable_references = true,
+					enable_hover = true,
+					enable_semantic_tokens = true,
+					enable_document_symbols = true,
+					enable_rename = true,
+					enable_auto_import = true,
 				}
 
 			}
