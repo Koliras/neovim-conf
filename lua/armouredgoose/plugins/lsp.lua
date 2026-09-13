@@ -17,6 +17,18 @@ return {
 			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()
+			vim.lsp.config['ols'] = {
+				cmd = { "/home/koliras/ols/ols" },
+				filetypes = { 'odin' },
+				root_markers = { 'ols.json', '.git' },
+				settings = {
+					odin_command = { "/home/koliras/Odin/odin" },
+					enable_hover = false,
+					enable_format = false,
+				}
+
+			}
+			vim.lsp.enable('ols')
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
@@ -90,17 +102,17 @@ return {
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
-				ols = {
-					init_options = {
-						enable_references = true,
-						enable_format = true,
-						enable_hover = true,
-						enable_semantic_tokens = true,
-						enable_document_symbols = true,
-						enable_rename = true,
-						enable_auto_import = true,
-					},
-				},
+				-- ols = {
+				-- 	init_options = {
+				-- 		enable_references = true,
+				-- 		enable_format = false,
+				-- 		enable_hover = false,
+				-- 		enable_semantic_tokens = true,
+				-- 		enable_document_symbols = true,
+				-- 		enable_rename = true,
+				-- 		enable_auto_import = true,
+				-- 	},
+				-- },
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},
@@ -156,7 +168,7 @@ return {
 				-- Disable "format_on_save lsp_fallback" for languages that don't
 				-- have a well standardized coding style. You can add additional
 				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true }
+				local disable_filetypes = { c = true, cpp = true, odin = true }
 				return {
 					timeout_ms = 500,
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -173,14 +185,8 @@ return {
 				typescriptreact = { "biome", "prettierd", "prettier" },
 				javascript = { "biome", "prettierd", "prettier" },
 				javascriptreact = { "biome", "prettierd", "prettier" },
-				odin = { "odinfmt" },
 
-				["*"] = { "codespell" },
-			},
-			format_on_save = {
-				-- These options will be passed to conform.format()
-				timeout_ms = 500,
-				lsp_format = "fallback",
+				-- ["*"] = { "codespell" },
 			},
 		},
 	},
